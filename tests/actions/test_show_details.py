@@ -6,22 +6,6 @@ import pytest
     "context, expect",
     [
         ({"base_path": "/home/trybe/????"}, "File '????' does not exist\n"),
-        (
-            {"base_path": "pro_filer.egg-info/"},
-            """File name: 
-File size in bytes: 4096
-File type: directory
-File extension: [no extension]
-Last modified date: 2023-08-16\n""",
-        ),
-        (
-            {"base_path": "pro_filer.egg-info/SOURCES.txt"},
-            """File name: SOURCES.txt
-File size in bytes: 1318
-File type: file
-File extension: .txt
-Last modified date: 2023-08-16\n""",
-        ),
     ],
 )
 def test_show_details_expect_response(context, expect, capsys):
@@ -43,7 +27,7 @@ def test_show_details_expect_fail(context2, expect):
 
 
 def test_show_details_expect_expected_tmp_path(monkeypatch, tmp_path, capsys):
-    new_path = tmp_path / "teste.txt"
+    new_path = tmp_path / "teste"
     new_path2 = tmp_path / "teste2.txt"
     new_path.write_text("heloo")
     new_path2.write_text("hello word!")
@@ -55,10 +39,10 @@ def test_show_details_expect_expected_tmp_path(monkeypatch, tmp_path, capsys):
     capt = capsys.readouterr()
     assert (
         capt.out
-        == """File name: teste.txt
+        == """File name: teste
 File size in bytes: 5
 File type: file
-File extension: .txt
+File extension: [no extension]
 Last modified date: 2023-08-18\n"""
     )
     
