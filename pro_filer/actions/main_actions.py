@@ -25,6 +25,14 @@ def find_duplicate_files(context):
 
     return duplicate_files
 
+# context = {
+#     "all_files": [
+#         "./tests/__iit__.py",
+#         "./tests/actions/__int__.py",
+#         "./pro_filer/__ini__.py",
+#     ]
+# }
+# print(find_duplicate_files(context))
 
 def show_details(context):
     """Mostra detalhes do arquivo ou diretório"""
