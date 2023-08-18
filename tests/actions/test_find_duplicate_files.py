@@ -1,6 +1,5 @@
 from pro_filer.actions.main_actions import find_duplicate_files  # NOQA
 import pytest
-from unittest.mock import Mock
 
 
 def test_find_duplicate_fail():
